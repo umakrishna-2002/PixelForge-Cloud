@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GramClone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">GramClone</a>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="card">
+                <h2>Share a Photo</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" name="file" id="file" accept="image/*" required>
+                        <label for="file" class="file-label">
+                            <span class="icon">📷</span> Choose Image
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary">Upload</button>
+                </form>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for message in messages %}
+                                <div class="alert">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </section>
+
+        <!-- Feed Section -->
+        <section class="feed-section">
+            <h3>Recent Uploads</h3>
+            <div class="grid">
+                {% for image in images %}
+                <div class="grid-item">
+                    {% if use_s3 %}
+                        <img src="https://{{ s3_bucket }}.s3.{{ s3_region }}.amazonaws.com/uploads/{{ image }}" alt="User Upload" loading="lazy">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="User Upload" loading="lazy">
+                    {% endif %}
+                    <div class="overlay">
+                        <button class="like-btn">❤️</button>
+                    </div>
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <p>No photos yet. Be the first to share!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
