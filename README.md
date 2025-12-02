@@ -8,4 +8,4 @@
 - **Compute**: EC2 for web server
 - **Processing**: Lambda for image resizing
 - **Notifications**: SNS for event notifications
-- **Database**: RDS (optional, for metadata)
+- **Database**: DynamoDB 
