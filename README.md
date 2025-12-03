@@ -121,3 +121,7 @@ Subfolders will be created automatically to store the uploads and in't correspon
 
 <img width="1641" height="474" alt="image" src="https://github.com/user-attachments/assets/eefdcd14-b71e-41d0-b468-e2b5a9d044a3" />
 
+
+You can access all history under uploads and resized in the dashboard of the user account
+<img width="1093" height="873" alt="image" src="https://github.com/user-attachments/assets/1f8bd046-b028-4405-8293-ab4ad5734bc4" />
+
