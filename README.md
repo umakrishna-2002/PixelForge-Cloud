@@ -82,4 +82,42 @@ Create an EC2 instance by adding the  IAM role created
 Connect to the instance and clone the github repo.
 
 ```
+https://github.com/umakrishna-2002/PixelForge-Cloud.git
+
+```
+
+<img width="1074" height="466" alt="image" src="https://github.com/user-attachments/assets/b798e3f1-7c19-41ea-b3b6-0c94306147ea" />
+
+Create a Virtual environment and install the requirements
+
+<img width="1171" height="456" alt="image" src="https://github.com/user-attachments/assets/e8543019-104d-48ea-8b92-74c001fe27ce" />
+
+
+Create a .env file to store the secretkey, AWS region, bucket name and DynamoDB table name.
+<img width="980" height="136" alt="image" src="https://github.com/user-attachments/assets/929c071f-f626-4cbf-8e1c-d19a014d70e1" />
+
+
+Access the flask application via public IP and on port 5000.
+
+<img width="1919" height="963" alt="image" src="https://github.com/user-attachments/assets/f4774009-46a3-49fa-98c0-288a856192bb" />
+
+create an account by giving the deatils 
+
+<img width="779" height="795" alt="image" src="https://github.com/user-attachments/assets/ec156298-a017-4da0-a427-cfa345e557f0" />
+
+All the details of the user is store in the DynamoDB table creating a unqiue_id for each user, which is used to create a seprate folder for the user in S3 bucket.
+
+<img width="1297" height="458" alt="image" src="https://github.com/user-attachments/assets/f38ea183-c525-447c-b212-2f94442c4d75" />
+
+Upload the image via flask application.
+
+<img width="1353" height="824" alt="image" src="https://github.com/user-attachments/assets/07475782-9dcf-4f5c-be15-37763202a4bd" />
+
+A seprate folder is created in the S3 bucket for each user based on the unique_id creater based on the user details.
+
+<img width="1609" height="512" alt="image" src="https://github.com/user-attachments/assets/f382e85a-c707-4fc5-96d9-eb5e8a3b8d87" />
+
+Subfolders will be created automatically to store the uploads and in't corresponding resized images.
+
+<img width="1641" height="474" alt="image" src="https://github.com/user-attachments/assets/eefdcd14-b71e-41d0-b468-e2b5a9d044a3" />
 
